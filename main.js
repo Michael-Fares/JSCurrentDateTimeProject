@@ -16,10 +16,10 @@ const displayDate = () => {
 
 // Write a JavaScript program to convert a number to a string.
 //I had to remove the parameter num and instead accese the value of the input to get it to work
-const numberToString = () => {
-  const num = document.getElementById('number').value
+const numberToString = (num) => {
+  num = document.getElementById('number').value
   const s = num.toString();
-  console.log(s, typeof s);
+  console.log(typeof s);
   document.getElementById("display-element").innerHTML = s;
   return s;
   }
@@ -29,9 +29,9 @@ const numberToString = () => {
   
   // Write a JavaScript program to convert a string to the number.
   //does not parse ints in middle of string
-  const stringToNumber = () => {
-  const str = document.getElementById('string').value
-  const num = parseInt(str);
+  const stringToNumber = (str) => {
+  str = document.getElementById('string').value
+  const num = parseFloat(str);
   console.log(num, typeof num);
   document.getElementById("display-element").innerHTML = num;
   return num;
@@ -47,8 +47,8 @@ const numberToString = () => {
     // * NaN
     // * String
   
-    const checkDataType = () => {
-    const value = document.getElementById('data').value
+    const checkDataType = (value) => {
+    value = document.getElementById('data').value
     if(value === "") {
     document.getElementById("display-element").innerHTML = "null";
     return "null";
@@ -72,26 +72,38 @@ else {
   // Need to figure out how to get DOM to take in the store input value in the actual arguments.
     // Write a JavaScript program that adds 2 numbers together.
     const addTwoNumbers = (x,y) => {
-     return x + y;
+      x = parseFloat(document.getElementById('num1').value)
+      y = parseFloat(document.getElementById('num2').value)
+      console.log(typeof x)
+      const sum = (x + y);
+      document.getElementById("display-element").innerHTML = sum;
+      return sum;
     }
   
-  // Write a JavaScript program that runs when 1 of 2 things are true. - check if someone is either 20 or younger or 40 or older
-  
-  const checkValue = (x) => {
-    if (x <=20 || x >= 40) {
-      return (true, 'The number is either less than or equal to 20, or greater than or equal to 40');
-    } else {
-      return (false, 'The number is between 20 and 40');
-    }
+// Write a JavaScript program that runs when 1 of 2 things are true. - check if a word starts with the letter a or the letter b
+
+const checkFirstLetter = (word) => {
+  word = document.getElementById('word').value
+  if (word.charAt(0) === 'a' || word.charAt(0) === 'b' || word.charAt(0) === 'A' ||word.charAt(0) === 'B') {
+    document.getElementById("display-element").innerHTML = 'The word begins with a or b';  
+    return (true, 'The word starts with a or starts with b');
+  } else {
+    document.getElementById("display-element").innerHTML = 'The word does NOT begin with a or b';  
+    return (false, 'The word does not begin with a or b');
   }
+}
   
-  // // Write a JavaScript program that runs when both things are not true. - Check that the age range is 20-40 inclusive. 
-  // Why can't I get this one to work?
-  const checkNumbers = (x,y) => {
-   if (!x===10 && !y===10) {
-     return 'neither # is 10';
-   }
+  // // Write a JavaScript program that runs when both things are not true. - Check that the word does not contain both the letter a and the letter s at the same time
+const checkNotAS = (word) => {
+  word = document.getElementById('word').value
+  if (!(word.includes('a') && word.includes('s'))) {
+    document.getElementById("display-element").innerHTML = "the word does not contain both a and s";
+    return true;
+  } else {
+    document.getElementById("display-element").innerHTML = "the word contains both a and s";
+    return false;
   }
+}
 
 // ***************************
 //         PART TWO
