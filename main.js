@@ -31,7 +31,7 @@ const numberToString = (num) => {
   //does not parse ints in middle of string
   const stringToNumber = (str) => {
   str = document.getElementById('string').value
-  const num = parseFloat(str);
+  const num = parseInt(str);
   console.log(num, typeof num);
   document.getElementById("display-element").innerHTML = num;
   return num;
@@ -69,7 +69,6 @@ else {
   
   
    
-  // Need to figure out how to get DOM to take in the store input value in the actual arguments.
     // Write a JavaScript program that adds 2 numbers together.
     const addTwoNumbers = (x,y) => {
       x = parseFloat(document.getElementById('num1').value)
