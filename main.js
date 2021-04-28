@@ -46,8 +46,13 @@ const numberToString = (num) => {
     // * Number
     // * NaN
     // * String
-  
-    const checkDataType = (value) => {
+    const checkDataType = (data) => {
+         return typeof data
+    }
+    console.log(checkDataType(34))
+    
+    // needed to write this custom function to get it to work with the DOM because the input fields apparently store everything as a string??
+    const checkDataTypeFromDOM = (value) => {
     value = document.getElementById('data').value
     if(value === "") {
     document.getElementById("display-element").innerHTML = "null";
